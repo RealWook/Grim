@@ -1,0 +1,15 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(int n, int k) {
+    int sum = 0; 
+    int lamb = 12000;
+    int coke = 2000;
+    int service = n / 10;
+
+    sum = (lamb * n) + (coke * k) - (service * 2000);
+
+    return sum;
+}
