@@ -1,0 +1,22 @@
+#include <string>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+#define ll long long
+
+long long solution(int r1, int r2) {
+    
+    ll answer = 0;
+    ll RR1 = (ll)r1*r1, RR2 = (ll)r2*r2; //외부원과 내부원의 반지름 제곱 값
+    
+    for(int x = 1; x <= r2; x++){ // x값을 하나씩
+        ll X = (ll)x*x; // x값의 제곱
+        int max = floor( sqrt(RR2-X) ); // x좌표에 해당하는 y의 최대값
+        int min = r1 < x ? 0 : ceil( sqrt(RR1-X) ); // r1<x 라면 내부 원에서 해당 x에 대해 정수 y값이 존재하지 않음
+        
+        answer += (max - min + 1); // 최대값과 최소값 사이의 정수 개수 구하기
+    }
+    
+    return 4 * answer;
+}
